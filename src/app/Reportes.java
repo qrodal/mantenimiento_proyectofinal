@@ -5,12 +5,7 @@
  */
 package app;
 import conexion.Database;
-import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.Set;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 /**
  *
@@ -115,7 +110,7 @@ public class Reportes extends javax.swing.JFrame {
 
     private void btn_regresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_regresarActionPerformed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Main Menu");
+        //JOptionPane.showMessageDialog(null, "Main Menu");
             Menu menu = new Menu();
             menu.setVisible(true);
             this.dispose();
