@@ -87,7 +87,9 @@
                               <Component id="btn_eliminar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btn_limpiar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="222" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="btn_workorders" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="131" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -157,6 +159,7 @@
                   <Component id="btn_modificar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_eliminar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btn_limpiar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btn_workorders" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="46" max="32767" attributes="0"/>
           </Group>
@@ -186,6 +189,7 @@
     <Component class="javax.swing.JTextField" name="txt_id">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_idActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_idKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="et_nombre">
@@ -202,6 +206,7 @@
     <Component class="javax.swing.JTextField" name="txt_nombre">
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txt_nombreActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_nombreKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="et_apaterno">
@@ -216,6 +221,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_apaterno">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_apaternoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -229,6 +237,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_area">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_areaKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="et_email">
       <Properties>
@@ -242,6 +253,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_email">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_emailKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -268,6 +282,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_telefono">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_telefonoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="et_reporte">
       <Properties>
@@ -281,6 +298,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txt_reporte">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txt_reporteKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -311,7 +331,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="btn_guardar">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Guardar"/>
+        <Property name="text" type="java.lang.String" value="Agregar"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_guardarActionPerformed"/>
@@ -369,6 +389,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Versi&#xf3;n alpha .007"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btn_workorders">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="View Work Orders"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_workordersActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

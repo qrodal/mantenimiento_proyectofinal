@@ -73,8 +73,6 @@ public class login extends javax.swing.JFrame {
             }
         });
 
-        txt_password.setText("jPasswordField1");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,6 +136,7 @@ public class login extends javax.swing.JFrame {
             Menu menu = new Menu();
             menu.setVisible(true);
             this.dispose();
+            
         } else {
             JOptionPane.showMessageDialog(null, "Datos Incorrectos", "Error", JOptionPane.ERROR_MESSAGE);
 

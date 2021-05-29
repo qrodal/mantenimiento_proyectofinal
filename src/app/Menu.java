@@ -27,7 +27,7 @@ public class Menu extends javax.swing.JFrame {
     public static Connection getConnection() {
         Connection con = null;
         try {
-            Class.forName("com.mysql.cj.jdbc.Driver");
+            Class.forName("com.mysql.jdbc.Driver");
             con = (Connection) DriverManager.getConnection(URL, USERNAME, PASSWORD);
             // JOptionPane.showMessageDialog(null, "Conexión Exitosa");
         } catch (Exception e) {
@@ -95,6 +95,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        btn_workorders = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -115,6 +116,11 @@ public class Menu extends javax.swing.JFrame {
                 txt_idActionPerformed(evt);
             }
         });
+        txt_id.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_idKeyTyped(evt);
+            }
+        });
 
         et_nombre.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
         et_nombre.setForeground(new java.awt.Color(51, 153, 0));
@@ -125,18 +131,41 @@ public class Menu extends javax.swing.JFrame {
                 txt_nombreActionPerformed(evt);
             }
         });
+        txt_nombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_nombreKeyTyped(evt);
+            }
+        });
 
         et_apaterno.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
         et_apaterno.setForeground(new java.awt.Color(51, 153, 0));
         et_apaterno.setText("Apellido:");
 
+        txt_apaterno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_apaternoKeyTyped(evt);
+            }
+        });
+
         jLabel1.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(51, 153, 0));
         jLabel1.setText("Area:");
 
+        txt_area.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_areaKeyTyped(evt);
+            }
+        });
+
         et_email.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
         et_email.setForeground(new java.awt.Color(51, 153, 0));
         et_email.setText("Email:");
+
+        txt_email.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_emailKeyTyped(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(51, 153, 0));
@@ -146,9 +175,21 @@ public class Menu extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(51, 153, 0));
         jLabel3.setText("Teléfono:");
 
+        txt_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_telefonoKeyTyped(evt);
+            }
+        });
+
         et_reporte.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
         et_reporte.setForeground(new java.awt.Color(51, 153, 0));
         et_reporte.setText("Reporte:");
+
+        txt_reporte.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txt_reporteKeyTyped(evt);
+            }
+        });
 
         jLabel4.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(51, 153, 0));
@@ -156,7 +197,7 @@ public class Menu extends javax.swing.JFrame {
 
         combo_status.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecciona un valor", "En progreso", "Resuelto", "Cancelado", "En Espera" }));
 
-        btn_guardar.setText("Guardar");
+        btn_guardar.setText("Agregar");
         btn_guardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btn_guardarActionPerformed(evt);
@@ -193,6 +234,13 @@ public class Menu extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial Rounded MT Bold", 1, 11)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(51, 153, 0));
         jLabel7.setText("Versión alpha .007");
+
+        btn_workorders.setText("View Work Orders");
+        btn_workorders.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_workordersActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -250,7 +298,9 @@ public class Menu extends javax.swing.JFrame {
                                 .addComponent(btn_eliminar)
                                 .addGap(18, 18, 18)
                                 .addComponent(btn_limpiar)
-                                .addGap(222, 222, 222))))))
+                                .addGap(18, 18, 18)
+                                .addComponent(btn_workorders)
+                                .addGap(131, 131, 131))))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -303,7 +353,8 @@ public class Menu extends javax.swing.JFrame {
                     .addComponent(btn_guardar)
                     .addComponent(btn_modificar)
                     .addComponent(btn_eliminar)
-                    .addComponent(btn_limpiar))
+                    .addComponent(btn_limpiar)
+                    .addComponent(btn_workorders))
                 .addContainerGap(46, Short.MAX_VALUE))
         );
 
@@ -470,7 +521,107 @@ public class Menu extends javax.swing.JFrame {
 
     private void txt_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_nombreActionPerformed
         // TODO add your handling code here:
+   
     }//GEN-LAST:event_txt_nombreActionPerformed
+
+    private void txt_idKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_idKeyTyped
+        // Validación para recibir números solamente
+         char solonumero = evt.getKeyChar();
+        if (Character.isLetter(solonumero)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Este campo solo admite numeros");
+        }
+    }//GEN-LAST:event_txt_idKeyTyped
+
+    private void txt_nombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_nombreKeyTyped
+        // validación para recibir texto solamente:
+         char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+            
+        }
+        
+        if (Character.isDigit(c)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Este campo solo admite texto");
+            
+        }
+     
+                                  
+
+    }//GEN-LAST:event_txt_nombreKeyTyped
+
+    private void txt_apaternoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_apaternoKeyTyped
+        // validación para recibir texto solamente:
+         char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+            
+        }
+        
+        if (Character.isDigit(c)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Este campo solo admite texto");
+            
+        }
+        
+    }//GEN-LAST:event_txt_apaternoKeyTyped
+
+    private void txt_areaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_areaKeyTyped
+        // validación para recibir texto solamente:
+         char c = evt.getKeyChar();
+        if (Character.isLowerCase(c)) {
+            String cad = ("" + c).toUpperCase();
+            c = cad.charAt(0);
+            evt.setKeyChar(c);
+            
+        }
+        
+        if (Character.isDigit(c)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Este campo solo admite texto");
+            
+        }
+    }//GEN-LAST:event_txt_areaKeyTyped
+
+    private void txt_emailKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_emailKeyTyped
+      
+      
+    }//GEN-LAST:event_txt_emailKeyTyped
+
+    private void txt_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_telefonoKeyTyped
+        // Validación para recibir números solamente
+         char solonumero = evt.getKeyChar();
+        if (Character.isLetter(solonumero)){
+            getToolkit().beep();
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Este campo solo admite numeros");
+        }
+         String Caracteres = txt_telefono.getText();
+        if(Caracteres.length()>=10){
+            evt.consume();
+            JOptionPane.showMessageDialog(null,"Maximo 10 caracteres");
+        }
+    }//GEN-LAST:event_txt_telefonoKeyTyped
+
+    private void txt_reporteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txt_reporteKeyTyped
+        // Campo para descripción del reporte
+         
+    }//GEN-LAST:event_txt_reporteKeyTyped
+
+    private void btn_workordersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_workordersActionPerformed
+Reportes reportes = new Reportes();
+        reportes.setVisible(true);
+        this.dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_workordersActionPerformed
 
     /**
      * @param args the command line arguments
@@ -513,6 +664,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btn_guardar;
     private javax.swing.JButton btn_limpiar;
     private javax.swing.JButton btn_modificar;
+    private javax.swing.JButton btn_workorders;
     private javax.swing.JComboBox<String> combo_status;
     private javax.swing.JLabel et_apaterno;
     private javax.swing.JLabel et_email;
